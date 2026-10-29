@@ -1,0 +1,208 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lavanderia self service a Bari · Aperta tutti i giorni</title>
+<meta name="description" content="Lavanderia self service a Bari: lavatrici e asciugatrici, detersivo incluso, aperta tutti i giorni. Guarda quali lavatrici sono libere prima di uscire di casa.">
+<meta name="robots" content="noindex, nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --deep:#0E3B5C;
+  --deep-2:#174E75;
+  --foam:#EAF3F6;
+  --white:#FFFFFF;
+  --free:#1F9D55;
+  --busy:#E59A2E;
+  --text:#14324A;
+  --muted:#5A7387;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:"Rubik",system-ui,sans-serif;color:var(--text);background:var(--foam);line-height:1.55;font-size:17px}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--busy);outline-offset:3px}
+.wrap{max-width:1060px;margin:0 auto;padding:0 20px}
+
+.draft{background:#FFF3C4;color:#4A3B00;font-size:14px;text-align:center;padding:9px 16px}
+
+header{display:flex;justify-content:space-between;align-items:center;padding:18px 0;gap:12px}
+.logo{display:flex;align-items:center;gap:10px;font-weight:800;font-size:19px;text-decoration:none}
+.logo i{width:30px;height:30px;border-radius:50%;border:5px solid var(--deep);background:radial-gradient(circle at 50% 60%,#9BC9DB 0 45%,var(--white) 46%)}
+.lang{display:flex;border:2px solid var(--deep);border-radius:999px;overflow:hidden}
+.lang button{border:0;background:transparent;font:inherit;font-weight:700;font-size:14px;padding:6px 12px;cursor:pointer;color:var(--deep)}
+.lang button[aria-pressed="true"]{background:var(--deep);color:#fff}
+
+/* Hero */
+.hero{display:grid;grid-template-columns:1.05fr 1fr;gap:40px;align-items:center;padding:30px 0 64px}
+h1{font-weight:800;font-size:clamp(40px,6.4vw,74px);line-height:1;letter-spacing:-.015em;color:var(--deep)}
+.lead{margin-top:18px;font-size:19px;max-width:40ch}
+.facts{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px}
+.facts span{background:#fff;border-radius:999px;padding:6px 14px;font-weight:500;font-size:15px}
+.cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
+.btn{display:inline-block;background:var(--deep);color:#fff;text-decoration:none;font-weight:700;padding:14px 22px;border-radius:12px}
+.btn.alt{background:#fff;color:var(--deep)}
+
+/* Status board: the signature element */
+.board{background:var(--deep);color:#fff;border-radius:28px;padding:26px 24px 22px}
+.board-head{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:18px}
+.board-head b{font-size:20px}
+.board-head small{color:#A9C6D8;font-size:13px}
+.machines{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.m{background:var(--deep-2);border-radius:18px;padding:14px 10px 12px;text-align:center}
+.drum{width:74px;height:74px;margin:0 auto 10px;border-radius:50%;border:7px solid #DCE9F0;background:#0B2F49;position:relative;overflow:hidden}
+.drum::after{content:"";position:absolute;inset:8px;border-radius:50%;background:radial-gradient(circle at 35% 35%,rgba(255,255,255,.35),transparent 55%)}
+.m.busy .drum{background:conic-gradient(var(--busy) var(--p,40%),#0B2F49 0)}
+.m.busy .drum::after{inset:9px;background:#0B2F49 radial-gradient(circle at 35% 35%,rgba(255,255,255,.25),transparent 55%)}
+.m.free .drum{background:#0B2F49;box-shadow:inset 0 0 0 4px var(--free)}
+.m b{display:block;font-size:15px}
+.st{display:inline-block;margin-top:5px;font-size:13px;font-weight:700;padding:2px 9px;border-radius:999px}
+.free .st{background:var(--free)}
+.busy .st{background:var(--busy);color:#2E1C00}
+.board-foot{margin-top:18px;display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;font-size:14px;color:#CFE1EC}
+.board-foot a{background:#fff;color:var(--deep);text-decoration:none;font-weight:700;padding:9px 14px;border-radius:10px}
+
+section{padding:60px 0}
+h2{font-weight:800;font-size:clamp(28px,4vw,42px);line-height:1.05;color:var(--deep);margin-bottom:26px}
+
+.prices{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:16px}
+.price{background:#fff;border-radius:20px;padding:22px}
+.price .kg{font-size:15px;color:var(--muted)}
+.price .eur{font-size:42px;font-weight:800;color:var(--deep);line-height:1.1;margin:6px 0}
+.price p{font-size:15px;color:var(--muted)}
+.note{margin-top:14px;font-size:14px;color:var(--muted)}
+
+.how{list-style:none;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:18px;counter-reset:h}
+.how li{counter-increment:h;background:#fff;border-radius:20px;padding:20px}
+.how li::before{content:counter(h);display:grid;place-items:center;width:38px;height:38px;border-radius:50%;background:var(--deep);color:#fff;font-weight:800;margin-bottom:12px}
+.how strong{display:block;font-size:18px;margin-bottom:4px}
+.how span{color:var(--muted);font-size:15px}
+
+.visit{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.map{background:repeating-linear-gradient(0deg,#D6E6EC 0 1px,transparent 1px 34px),repeating-linear-gradient(90deg,#D6E6EC 0 1px,#E3EFF3 1px 34px);border-radius:20px;min-height:260px;display:grid;place-items:center;color:var(--muted);font-weight:500}
+.visit dl{display:grid;gap:16px;background:#fff;border-radius:20px;padding:24px}
+.visit dt{font-size:14px;color:var(--muted)}
+.visit dd{font-size:19px;font-weight:500}
+.todo{background:#FFF3C4;padding:0 5px;border-radius:3px;font-size:.9em}
+
+footer{padding:30px 0 46px;font-size:14px;color:var(--muted);display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
+
+@media (max-width:820px){
+  .hero,.visit{grid-template-columns:1fr}
+  .machines{grid-template-columns:repeat(3,1fr);gap:10px}
+  .drum{width:58px;height:58px;border-width:6px}
+}
+@media (max-width:420px){.machines{grid-template-columns:repeat(2,1fr)}}
+</style>
+</head>
+<body>
+
+<div class="draft" data-it="Bozza realizzata da ClickBari. Nome, indirizzo e prezzi da definire." data-en="Draft by ClickBari. Name, address and prices to be confirmed.">Bozza realizzata da ClickBari. Nome, indirizzo e prezzi da definire.</div>
+
+<div class="wrap">
+  <header>
+    <a class="logo" href="#"><i aria-hidden="true"></i><span data-it="Lavanderia Self Service" data-en="Self Service Laundry">Lavanderia Self Service</span></a>
+    <div class="lang" role="group" aria-label="Lingua / Language">
+      <button data-lang="it" aria-pressed="true">IT</button>
+      <button data-lang="en" aria-pressed="false">EN</button>
+    </div>
+  </header>
+
+  <div class="hero">
+    <div>
+      <h1 data-it="Lavi e asciughi in un'ora, quando vuoi tu." data-en="Wash and dry in one hour, whenever you like.">Lavi e asciughi in un'ora, quando vuoi tu.</h1>
+      <p class="lead" data-it="Lavatrici grandi, detersivo già incluso, istruzioni semplici in italiano e in inglese. E prima di uscire di casa vedi quali lavatrici sono libere." data-en="Large machines, detergent included, simple instructions in Italian and English. And before you leave home you can see which machines are free.">Lavatrici grandi, detersivo già incluso, istruzioni semplici in italiano e in inglese. E prima di uscire di casa vedi quali lavatrici sono libere.</p>
+      <div class="facts">
+        <span data-it="Aperta tutti i giorni" data-en="Open every day">Aperta tutti i giorni</span>
+        <span data-it="Detersivo incluso" data-en="Detergent included">Detersivo incluso</span>
+        <span data-it="Monete, banconote e carte" data-en="Coins, notes and cards">Monete, banconote e carte</span>
+      </div>
+      <div class="cta">
+        <a class="btn" href="#dove" data-it="Come arrivare" data-en="Get directions">Come arrivare</a>
+        <a class="btn alt" href="#prezzi" data-it="Vedi i prezzi" data-en="See prices">Vedi i prezzi</a>
+      </div>
+    </div>
+
+    <div class="board" aria-label="Stato delle macchine (esempio)">
+      <div class="board-head">
+        <b data-it="Macchine adesso" data-en="Machines now">Macchine adesso</b>
+        <small data-it="Esempio dimostrativo" data-en="Demo example">Esempio dimostrativo</small>
+      </div>
+      <div class="machines">
+        <div class="m free"><div class="drum"></div><b data-it="Lavatrice 1" data-en="Washer 1">Lavatrice 1</b><span class="st" data-it="Libera" data-en="Free">Libera</span></div>
+        <div class="m busy" style="--p:70%"><div class="drum"></div><b data-it="Lavatrice 2" data-en="Washer 2">Lavatrice 2</b><span class="st" data-it="Tra 12 min" data-en="12 min left">Tra 12 min</span></div>
+        <div class="m busy" style="--p:25%"><div class="drum"></div><b data-it="Lavatrice 3" data-en="Washer 3">Lavatrice 3</b><span class="st" data-it="Tra 31 min" data-en="31 min left">Tra 31 min</span></div>
+        <div class="m free"><div class="drum"></div><b data-it="Asciugatrice 1" data-en="Dryer 1">Asciugatrice 1</b><span class="st" data-it="Libera" data-en="Free">Libera</span></div>
+        <div class="m busy" style="--p:55%"><div class="drum"></div><b data-it="Asciugatrice 2" data-en="Dryer 2">Asciugatrice 2</b><span class="st" data-it="Tra 8 min" data-en="8 min left">Tra 8 min</span></div>
+        <div class="m free"><div class="drum"></div><b data-it="Lavatrice 4" data-en="Washer 4">Lavatrice 4</b><span class="st" data-it="Libera" data-en="Free">Libera</span></div>
+      </div>
+      <div class="board-foot">
+        <span data-it="Avviso su WhatsApp quando il lavaggio è finito." data-en="WhatsApp alert when your wash is done.">Avviso su WhatsApp quando il lavaggio è finito.</span>
+        <a href="#" data-it="Attiva l'avviso" data-en="Turn on alert">Attiva l'avviso</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<section id="prezzi">
+  <div class="wrap">
+    <h2 data-it="Prezzi" data-en="Prices">Prezzi</h2>
+    <div class="prices">
+      <div class="price"><div class="kg" data-it="Lavatrice 8 kg" data-en="Washer 8 kg">Lavatrice 8 kg</div><div class="eur">€ 5</div><p data-it="Circa 30 minuti, detersivo incluso" data-en="About 30 minutes, detergent included">Circa 30 minuti, detersivo incluso</p></div>
+      <div class="price"><div class="kg" data-it="Lavatrice 18 kg" data-en="Washer 18 kg">Lavatrice 18 kg</div><div class="eur">€ 8</div><p data-it="Per piumoni, coperte e tende" data-en="For duvets, blankets and curtains">Per piumoni, coperte e tende</p></div>
+      <div class="price"><div class="kg" data-it="Asciugatrice" data-en="Dryer">Asciugatrice</div><div class="eur">€ 1,50</div><p data-it="Ogni 10 minuti" data-en="Every 10 minutes">Ogni 10 minuti</p></div>
+    </div>
+    <p class="note"><span class="todo" data-it="Prezzi di esempio, da definire con le macchine scelte." data-en="Example prices, to be set once machines are chosen.">Prezzi di esempio, da definire con le macchine scelte.</span></p>
+  </div>
+</section>
+
+<section id="come">
+  <div class="wrap">
+    <h2 data-it="Come funziona" data-en="How it works">Come funziona</h2>
+    <ol class="how">
+      <li><strong data-it="Carica il bucato" data-en="Load your laundry">Carica il bucato</strong><span data-it="Scegli una lavatrice libera e chiudi l'oblò." data-en="Pick a free machine and close the door.">Scegli una lavatrice libera e chiudi l'oblò.</span></li>
+      <li><strong data-it="Paga alla cassa" data-en="Pay at the kiosk">Paga alla cassa</strong><span data-it="Monete, banconote o carta. Inserisci il numero della macchina." data-en="Coins, notes or card. Enter the machine number.">Monete, banconote o carta. Inserisci il numero della macchina.</span></li>
+      <li><strong data-it="Scegli il programma" data-en="Choose the program">Scegli il programma</strong><span data-it="Il detersivo entra da solo. Puoi uscire e tornare." data-en="Detergent goes in automatically. You can leave and come back.">Il detersivo entra da solo. Puoi uscire e tornare.</span></li>
+      <li><strong data-it="Asciuga e vai" data-en="Dry and go">Asciuga e vai</strong><span data-it="Sposta il bucato nell'asciugatrice. In un'ora hai finito." data-en="Move your laundry to a dryer. Done in about an hour.">Sposta il bucato nell'asciugatrice. In un'ora hai finito.</span></li>
+    </ol>
+  </div>
+</section>
+
+<section id="dove">
+  <div class="wrap">
+    <h2 data-it="Dove siamo" data-en="Where we are">Dove siamo</h2>
+    <div class="visit">
+      <div class="map" data-it="Mappa Google" data-en="Google Map">Mappa Google</div>
+      <dl>
+        <div><dt data-it="Indirizzo" data-en="Address">Indirizzo</dt><dd><span class="todo" data-it="Via da definire, Bari" data-en="Street to be confirmed, Bari">Via da definire, Bari</span></dd></div>
+        <div><dt data-it="Orari" data-en="Opening hours">Orari</dt><dd data-it="Tutti i giorni, 7:00–22:00" data-en="Every day, 7am–10pm">Tutti i giorni, 7:00–22:00</dd></div>
+        <div><dt data-it="Assistenza" data-en="Help">Assistenza</dt><dd><a href="#" data-it="Scrivici su WhatsApp" data-en="Message us on WhatsApp">Scrivici su WhatsApp</a></dd></div>
+      </dl>
+    </div>
+  </div>
+</section>
+
+<div class="wrap">
+  <footer>
+    <span>© 2026 · P.IVA <span class="todo">da inserire</span></span>
+    <span><span data-it="Sito realizzato da" data-en="Website by">Sito realizzato da</span> <a href="https://clickbari.it" rel="nofollow">ClickBari</a></span>
+  </footer>
+</div>
+
+<script>
+const setLang=l=>{
+  document.documentElement.lang=l;
+  document.querySelectorAll('[data-'+l+']').forEach(el=>{
+    if(el.classList.contains('board')) return;
+    el.textContent=el.dataset[l];
+  });
+  document.querySelectorAll('.lang button').forEach(b=>b.setAttribute('aria-pressed',b.dataset.lang===l));
+  try{localStorage.setItem('lang',l)}catch(e){}
+};
+document.querySelectorAll('.lang button').forEach(b=>b.addEventListener('click',()=>setLang(b.dataset.lang)));
+try{const s=localStorage.getItem('lang'); if(s) setLang(s); else if(!navigator.language.startsWith('it')) setLang('en');}catch(e){}
+</script>
+</body>
+</html>
